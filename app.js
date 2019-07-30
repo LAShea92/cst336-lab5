@@ -67,7 +67,7 @@ app.get("/displayKeywords", async function(req, res){
     conn.query(sql, function(err, result){
       if(err) throw err;
       res.render("favorites", {"rows":result, "imageURLs":imageURLs});
-      console.log(result);
+      //console.log(result);
     });//query
   });//connect
 });//displayKeywords
@@ -81,17 +81,17 @@ app.get("/api/displayFavorites", function(req, res){
     if(err) throw err;
     conn.query(sql, sqlParams, function(err, results){
       if(err) throw err;
-      res.send(results);
+			res.send(results);
     });//query
   });//connect 
 });//displayFavorites
 
 //server listener
-app.listen(process.env.PORT, process.env.IP, function(){
-   console.log("Express server is running...")
-});
+// app.listen(process.env.PORT, process.env.IP, function(){
+//    console.log("Express server is running...")
+// });
 
 //server listener
-// app.listen("8081", "0.0.0.0", function(){
-//    console.log("Express Server is running...")
-// })
+app.listen("8081", "0.0.0.0", function(){
+   console.log("Express Server is running...")
+})
