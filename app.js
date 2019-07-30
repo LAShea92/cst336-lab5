@@ -22,7 +22,6 @@ app.get("/search", async function(req, res){
   //console.dir(req);
   //console.log(req.query.keyword);
   var keyword = req.query.keyword;
-  
   var imageURLs = await tools.getRandomImages(keyword, 9);
   res.render("results", {"imageURLs":imageURLs, "keyword":keyword});
 //   getRandomImages_cb(keyword, 9, function(imageURLs){
@@ -67,7 +66,7 @@ app.get("/displayKeywords", async function(req, res){
     conn.query(sql, function(err, result){
       if(err) throw err;
       res.render("favorites", {"rows":result, "imageURLs":imageURLs});
-      //console.log(result);
+      console.log(result);
     });//query
   });//connect
 });//displayKeywords
